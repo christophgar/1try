@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dr. Felipe Pontes - Endodontia</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet" />
+  <link rel="icon" href="favicon.ico" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: 'Nunito', sans-serif;
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: #ffffff;
+      color: #121212;
+      padding: 1rem;
+      font-size: 22px;
+      transition: all 0.3s ease;
+    }
+
+    body.dark-mode {
+      background-color: #121212;
+      color: #ffffff;
+    }
+
+    body.dark-mode nav a {
+      color: #ffffff;
+    }
+
+    .dark-mode-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: #00bfa6;
+      color: #ffffff;
+      border: none;
+      border-radius: 5px;
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      font-size: 1.5rem;
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.3s ease;
+    }
+
+    .dark-mode-toggle:hover {
+      background-color: #008f7a;
+    }
+
+    header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      padding-bottom: 1rem;
+    }
+
+    .header-title {
+      text-align: center;
+    }
+
+    .title {
+      font-size: 2rem;
+      font-weight: bold;
+    }
+
+    .header-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      width: 100%;
+    }
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #121212;
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #00bfa6;
+    }
+
+    .flags {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+    }
+
+    .flags img {
+      width: 38px;
+      height: 26px;
+      object-fit: cover;
+      background-color: #ffffff;
+      cursor: pointer;
+    }
+
+    section {
+      margin: 3rem auto;
+      max-width: 800px;
+      text-align: center;
+    }
+
+    section h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      text-transform: capitalize;
+    }
+
+    .bubble {
+      background-color: #f0f0f0;
+      padding: 1.5rem;
+      border-radius: 20px;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
+      margin-top: 1rem;
+      text-align: left;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    body.dark-mode .bubble {
+      background-color: #1e1e1e;
+      color: #ffffff;
+    }
+
+    .bubble p {
+      margin: 0.5rem 0;
+      line-height: 1.6;
+    }
+
+    .bubble a {
+      color: #00bfa6;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .bubble a:hover {
+      color: #008f7a;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-top: 1rem;
+      text-align: left;
+    }
+
+    .contact-item img {
+      width: 24px;
+      height: 24px;
+    }
+
+    a {
+      color: #121212;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .no-underline {
+      text-decoration: none !important;
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 999;
+    }
+
+    .whatsapp-float img {
+      width: 60px;
+      height: 60px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <button class="dark-mode-toggle" onclick="toggleDarkMode()">
+    <span id="dark-mode-icon">☀️</span>
+  </button>
+
+  <header>
+    <div class="header-title">
+      <div class="title">Dr. Felipe Pontes</div>
+    </div>
+
+    <div class="header-nav">
+      <div class="flags">
+        <img src="assests/icons/br.png" alt="Português" onclick="setLanguage('pt')" />
+        <img src="assests/icons/us.png" alt="English" onclick="setLanguage('en')" />
+        <img src="assests/icons/es.png" alt="Español" onclick="setLanguage('es')" />
+      </div>
+      <nav>
+        <a href="#about" data-translate="Quem sou eu">Sobre</a>
+        <a href="#formacao" data-translate="Formação">Formação</a>
+        <a href="#parceria" data-translate="Parceria com dentistas">Parceria</a>
+        <a href="#equipamentos" data-translate="Equipamentos">Equipamentos</a>
+        <a href="#galeria" data-translate="Galeria">Galeria</a>
+        <a href="#contato" data-translate="Contato">Contato</a>
+      </nav>
+    </div>
+  </header>
+
+  <section id="about">
+    <h2 data-translate="Quem sou eu">Quem sou eu</h2>
+    <div class="bubble">
+      <p data-translate="Texto quem sou eu">
+        Especialista em endodontia com ampla experiência no diagnóstico e tratamento de patologias pulpares e periapicais. 
+        Comprometido com a utilização de tecnologias avançadas, como magnificação óptica e radiografia digital, para garantir 
+        precisão e eficiência nos procedimentos. Dedico-me a oferecer um atendimento humanizado, priorizando o conforto e a 
+        segurança dos pacientes, além de colaborar com outros profissionais da odontologia para proporcionar resultados de excelência.
+      </p>
+    </div>
+  </section>
+
+  <section id="formacao">
+    <h2 data-translate="Formação">Formação</h2>
+    <div class="bubble">
+      <p><strong>2022</strong> - <span data-translate="Curso básico em Endodontia - ABED">Curso básico em Endodontia - ABED</span></p>
+      <p><strong>2022</strong> - <span data-translate="Imersão em Endodontia - Endo Evolution">Imersão em Endodontia - Endo Evolution</span></p>
+      <p><strong>2022</strong> - <span data-translate="Monitor de Radiologia - UENP">Monitor de Radiologia - UENP</span></p>
+      <p><strong>2023</strong> - <span data-translate="CEBEC - Clínica Endodôntica Baseada em Evidência Científica">CEBEC - Clínica Endodôntica Baseada em Evidência Científica</span></p>
+      <p><strong>2023</strong> - <span data-translate="Hands On: Denco">Hands On: Denco</span></p>
+      <p><strong>2023</strong> - <span data-translate="Hands On: Selamento de perfurações">Hands On: Selamento de perfurações</span></p>
+      <p><strong>2023</strong> - <span data-translate="Imersão em Endodontia – Instrumentação com sistemas MKLife">Imersão em Endodontia – Instrumentação com sistemas MKLife</span></p>
+      <p><strong>2023</strong> - <span data-translate="Monitor de Endodontia - UENP">Monitor de Endodontia - UENP</span></p>
+      <p><strong>2024</strong> - <span data-translate="Cirurgião-Dentista (UENP)">Cirurgião-Dentista (UENP)</span></p>
+    </div>
+  </section>
+
+  <section id="parceria">
+    <h2 data-translate="Parceria com dentistas">Parceria com dentistas</h2>
+    <div class="bubble">
+      <p data-translate="Texto parceria">Ofereço suporte para clínicas, com atuação sob demanda, trazendo conforto e precisão para o atendimento endodôntico.</p>
+    </div>
+  </section>
+
+  <section id="equipamentos">
+    <h2 data-translate="Equipamentos">Equipamentos</h2>
+    <div class="bubble">
+      <p><strong data-translate="Motor endodôntico">Motor endodôntico:</strong> <span data-translate="Texto motor">Agilidade e precisão durante o preparo químico-mecânico.</span></p>
+      <p><strong data-translate="Localizador apical">Localizador apical:</strong> <span data-translate="Texto localizador">Medição eletrônica do comprimento dos canais com segurança.</span></p>
+      <p><strong data-translate="Ultrassom">Ultrassom:</strong> <span data-translate="Texto ultrassom">Remoção de pinos, retratamentos e auxílios em cirurgias endodônticas.</span></p>
+      <p><strong data-translate="Sensor digital">Sensor digital:</strong> <span data-translate="Texto sensor">Imagens radiográficas em tempo real e com baixa dose de radiação.</span></p>
+      <p><strong data-translate="Magnificação óptica">Magnificação óptica:</strong> <span data-translate="Texto magnificação">Visualização precisa e detalhada da anatomia interna do dente.</span></p>
+    </div>
+  </section>
+
+  <section id="galeria">
+    <h2 data-translate="Galeria">Galeria</h2>
+    <div class="bubble">
+      <p>Imagens em breve!</p>
+    </div>
+  </section>
+
+  <section id="contato">
+    <h2 data-translate="Contato">Contato</h2>
+    <div class="bubble">
+      <div class="contact-item">
+        <img src="assests/icons/whatsapp.png" alt="WhatsApp" />
+        <span data-translate="Texto contato telefone">+55 14 99809-8525</span>
+      </div>
+      <div class="contact-item">
+        <img src="assests/icons/email.png" alt="Email" />
+        <span data-translate="Texto contato email">felipepontes.endo@gmail.com</span>
+      </div>
+      <div class="contact-item">
+        <img src="assests/icons/lattes.png" alt="Lattes" />
+        <a href="http://lattes.cnpq.br" target="_blank" class="no-underline" data-translate="Texto contato lattes">Currículo Lattes</a>
+      </div>
+    </div>
+  </section>
+
+  <a id="whatsapp-float" href="#" class="whatsapp-float" target="_blank">
+    <img src="assests/icons/whatsapp.png" alt="WhatsApp">
+  </a>
+
+  <script>
+    const translations = {
+      pt: {
+        "Quem sou eu": "Quem sou eu",
+        "Texto quem sou eu": "Especialista em endodontia, comprometido com tecnologia e qualidade no atendimento.",
+        "Formação": "Formação",
+        "Curso básico em Endodontia - ABED": "Curso básico em Endodontia - ABED",
+        "Imersão em Endodontia - Endo Evolution": "Imersão em Endodontia - Endo Evolution",
+        "Monitor de Radiologia - UENP": "Monitor de Radiologia - UENP",
+        "CEBEC - Clínica Endodôntica Baseada em Evidência Científica": "CEBEC - Clínica Endodôntica Baseada em Evidência Científica",
+        "Hands On: Denco": "Hands On: Denco",
+        "Hands On: Selamento de perfurações": "Hands On: Selamento de perfurações",
+        "Imersão em Endodontia – Instrumentação com sistemas MKLife": "Imersão em Endodontia – Instrumentação com sistemas MKLife",
+        "Monitor de Endodontia - UENP": "Monitor de Endodontia - UENP",
+        "Cirurgião-Dentista (UENP)": "Cirurgião-Dentista (UENP)",
+        "Equipamentos": "Equipamentos",
+        "Motor endodôntico": "Motor endodôntico",
+        "Texto motor": "Agilidade e precisão durante o preparo químico-mecânico.",
+        "Localizador apical": "Localizador apical",
+        "Texto localizador": "Medição eletrônica do comprimento dos canais com segurança.",
+        "Ultrassom": "Ultrassom",
+        "Texto ultrassom": "Remoção de pinos, retratamentos e auxílios em cirurgias endodônticas.",
+        "Sensor digital": "Sensor digital",
+        "Texto sensor": "Imagens radiográficas em tempo real e com baixa dose de radiação.",
+        "Magnificação óptica": "Magnificação óptica",
+        "Texto magnificação": "Visualização precisa e detalhada da anatomia interna do dente.",
+        "Contato": "Contato",
+        "Texto contato telefone": "+55 14 99809-8525",
+        "Texto contato email": "felipepontes.endo@gmail.com",
+        "Texto contato lattes": "Currículo Lattes",
+        "Galeria": "Galeria",
+        "Parceria com dentistas": "Parceria com dentistas",
+        "Texto parceria": "Ofereço suporte para clínicas, com atuação sob demanda, trazendo conforto e precisão para o atendimento endodôntico.",
+        whatsappMessage: "Olá, estou interessado nos serviços de endodontia. Poderia me passar mais informações?",
+        "Quem sou eu": "Quem sou eu",
+    "Texto quem sou eu": "Especialista em endodontia com ampla experiência no diagnóstico e tratamento de patologias pulpares e periapicais. Comprometido com a utilização de tecnologias avançadas, como magnificação óptica e radiografia digital, para garantir precisão e eficiência nos procedimentos. Dedico-me a oferecer um atendimento humanizado, priorizando o conforto e a segurança dos pacientes, além de colaborar com outros profissionais da odontologia para proporcionar resultados de excelência.",
+    // ... outras traduções ...
+      },
+      en: {
+        "Quem sou eu": "About me",
+        "Texto quem sou eu": "Specialist in endodontics, committed to technology and quality in care.",
+        "Formação": "Education",
+        "Curso básico em Endodontia - ABED": "Basic course in Endodontics - ABED",
+        "Imersão em Endodontia - Endo Evolution": "Immersion in Endodontics - Endo Evolution",
+        "Monitor de Radiologia - UENP": "Radiology Monitor - UENP",
+        "CEBEC - Clínica Endodôntica Baseada em Evidência Científica": "CEBEC - Endodontic Clinic Based on Scientific Evidence",
+        "Hands On: Denco": "Hands On: Denco",
+        "Hands On: Selamento de perfurações": "Hands On: Perforation Sealing",
+        "Imersão em Endodontia – Instrumentação com sistemas MKLife": "Immersion in Endodontics – Instrumentation with MKLife systems",
+        "Monitor de Endodontia - UENP": "Endodontics Monitor - UENP",
+        "Cirurgião-Dentista (UENP)": "Dentist (UENP)",
+        "Equipamentos": "Equipment",
+        "Motor endodôntico": "Endodontic motor",
+        "Texto motor": "Agility and precision during chemical-mechanical preparation.",
+        "Localizador apical": "Apex locator",
+        "Texto localizador": "Electronic measurement of canal length with safety.",
+        "Ultrassom": "Ultrasound",
+        "Texto ultrassom": "Removal of posts, retreatments, and assistance in endodontic surgeries.",
+        "Sensor digital": "Digital sensor",
+        "Texto sensor": "Real-time radiographic images with low radiation dose.",
+        "Magnificação óptica": "Optical magnification",
+        "Texto magnificação": "Precise and detailed visualization of the internal anatomy of the tooth.",
+        "Contato": "Contact",
+        "Texto contato telefone": "+55 14 99809-8525",
+        "Texto contato email": "felipepontes.endo@gmail.com",
+        "Texto contato lattes": "Lattes Curriculum",
+        "Galeria": "Gallery",
+        "Parceria com dentistas": "Partnership with dentists",
+        "Texto parceria": "I offer support for clinics, working on demand, bringing comfort and precision to endodontic care.",
+        whatsappMessage: "Hello, I am interested in the endodontic services. Could you provide me with more information?",
+        "Quem sou eu": "About me",
+    "Texto quem sou eu": "Specialist in endodontics with extensive experience in diagnosing and treating pulp and periapical pathologies. Committed to using advanced technologies, such as optical magnification and digital radiography, to ensure precision and efficiency in procedures. Dedicated to providing humanized care, prioritizing patient comfort and safety, and collaborating with other dental professionals to deliver excellent results.",
+    // ... outras traduções ...
+      },
+      es: {
+        "Quem sou eu": "¿Quién soy?",
+        "Texto quem sou eu": "Especialista en endodoncia, comprometido con la tecnología y la calidad en la atención.",
+        "Formação": "Formación",
+        "Curso básico em Endodontia - ABED": "Curso básico en Endodoncia - ABED",
+        "Imersão em Endodontia - Endo Evolution": "Inmersión en Endodoncia - Endo Evolution",
+        "Monitor de Radiologia - UENP": "Monitor de Radiología - UENP",
+        "CEBEC - Clínica Endodôntica Baseada en Evidência Científica": "CEBEC - Clínica Endodóntica Basada en Evidencia Científica",
+        "Hands On: Denco": "Hands On: Denco",
+        "Hands On: Selamento de perfurações": "Hands On: Sellado de perforaciones",
+        "Imersão em Endodontia – Instrumentação com sistemas MKLife": "Inmersión en Endodoncia – Instrumentación con sistemas MKLife",
+        "Monitor de Endodontia - UENP": "Monitor de Endodoncia - UENP",
+        "Cirurgião-Dentista (UENP)": "Cirujano-Dentista (UENP)",
+        "Equipamentos": "Equipos",
+        "Motor endodôntico": "Motor endodóntico",
+        "Texto motor": "Agilidad y precisión durante la preparación químico-mecánica.",
+        "Localizador apical": "Localizador apical",
+        "Texto localizador": "Medición electrónica de la longitud de los conductos con seguridad.",
+        "Ultrassom": "Ultrasonido",
+        "Texto ultrassom": "Eliminación de postes, retratamientos y asistencia en cirugías endodónticas.",
+        "Sensor digital": "Sensor digital",
+        "Texto sensor": "Imágenes radiográficas en tiempo real con baja dosis de radiación.",
+        "Magnificação óptica": "Magnificación óptica",
+        "Texto magnificação": "Visualización precisa y detallada de la anatomía interna del diente.",
+        "Contato": "Contacto",
+        "Texto contato telefone": "+55 14 99809-8525",
+        "Texto contato email": "felipepontes.endo@gmail.com",
+        "Texto contato lattes": "Currículum Lattes",
+        "Galeria": "Galería",
+        "Parceria com dentistas": "Colaboración con dentistas",
+        "Texto parceria": "Ofrezco soporte para clínicas, trabajando bajo demanda, brindando comodidad y precisión en la atención endodóntica.",
+        whatsappMessage: "Hola, estoy interesado en los servicios de endodoncia. ¿Podría darme más información?",
+        "Quem sou eu": "¿Quién soy?",
+        "Texto quem sou eu": "Especialista en endodoncia con amplia experiencia en el diagnóstico y tratamiento de patologías pulpares y periapicales. Comprometido con el uso de tecnologías avanzadas, como la magnificación óptica y la radiografía digital, para garantizar precisión y eficiencia en los procedimientos. Dedicado a brindar una atención humanizada, priorizando la comodidad y seguridad de los pacientes, además de colaborar con otros profesionales de la odontología para ofrecer resultados de excelencia.",
+      }
+    };
+  
+    // Define o idioma padrão como português
+    let currentLanguage = 'pt';
+  
+    // Atualiza a mensagem do WhatsApp com base no idioma selecionado
+    function updateWhatsAppLink() {
+      const whatsappNumber = "5514998098525"; // Número do WhatsApp
+      const message = encodeURIComponent(translations[currentLanguage].whatsappMessage);
+      const whatsappLink = `https://wa.me/${whatsappNumber}?text=${message}`;
+      document.getElementById('whatsapp-float').href = whatsappLink;
+    }
+  
+    // Função para alterar o idioma
+    function setLanguage(lang) {
+      currentLanguage = lang;
+      document.querySelectorAll("[data-translate]").forEach(el => {
+        const original = el.getAttribute("data-translate");
+        el.textContent = translations[lang][original] || original;
+      });
+      updateWhatsAppLink(); // Atualiza o link do WhatsApp ao mudar o idioma
+    }
+  
+    // Verifica o modo salvo no localStorage ao carregar a página
+    document.addEventListener('DOMContentLoaded', () => {
+      const savedMode = localStorage.getItem('theme');
+      if (savedMode === 'dark') {
+        document.body.classList.add('dark-mode');
+        document.getElementById('dark-mode-icon').textContent = '☀️'; // Sol para modo escuro
+      } else {
+        document.body.classList.remove('dark-mode');
+        document.getElementById('dark-mode-icon').textContent = '🌙'; // Lua para modo claro
+      }
+      updateWhatsAppLink(); // Atualiza o link do WhatsApp ao carregar a página
+    });
+  
+    // Alterna entre Light Mode e Dark Mode e salva no localStorage
+    function toggleDarkMode() {
+      const body = document.body;
+      const icon = document.getElementById('dark-mode-icon');
+  
+      body.classList.toggle('dark-mode');
+  
+      if (body.classList.contains('dark-mode')) {
+        localStorage.setItem('theme', 'dark'); // Salva o modo escuro
+        icon.textContent = '☀️'; // Sol para indicar modo escuro
+      } else {
+        localStorage.setItem('theme', 'light'); // Salva o modo claro
+        icon.textContent = '🌙'; // Lua para indicar modo claro
+      }
+    }
+  </script>
+</body>
+</html>
